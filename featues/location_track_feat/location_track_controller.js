@@ -44,7 +44,7 @@ exports.getSpecificJourneyDetails = async (req, res) => {
         const journeyId = req.body.journeyId;
         let individual = await IndividualModel.findOne({ user_unique_id });
 
-        log(`[${user_unique_id}] :  ${individual}`);
+        console.log(`[${user_unique_id}] :  ${individual}`);
 
 
         if (individual === null) {
