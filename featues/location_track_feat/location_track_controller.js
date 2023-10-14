@@ -62,11 +62,14 @@ exports.getSpecificJourneyDetails = async (req, res) => {
             const journeyData = session.journey_data;
             let initial_battery = journeyData[0].battery_chargePercentage;
             let final_battery = journeyData[journeyData.length - 1].battery_chargePercentage;
+            let timeElapsed = (journeyData[journeyData.length - 1].created_at - journeyData[0].created_at) / 1000;
+
             const latLongData = journeyData.map((data) => ({
                 lat: data.lat,
                 long: data.long,
             }));
             return res.status(200).json({
+                "time_elapsed_in_sec": timeElapsed,
                 "initial_battery": initial_battery,
                 "final_battery": final_battery,
                 "locations": latLongData,
