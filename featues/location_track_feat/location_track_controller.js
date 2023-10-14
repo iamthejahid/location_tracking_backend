@@ -44,11 +44,10 @@ exports.getSpecificJourneyDetails = async (req, res) => {
         const journeyId = req.body.journeyId;
         let individual = await IndividualModel.findOne({ user_unique_id });
 
+        log(`[${user_unique_id}] :  ${individual}`);
 
 
         if (individual === null) {
-            const userUniqueIds = await IndividualModel.distinct('user_unique_id');
-            console.log(userUniqueIds);
             return res.status(404).json({
                 message: 'No user Found',
             });
