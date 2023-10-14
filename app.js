@@ -2,11 +2,14 @@ const express = require('express');
 const { connectDB } = require('./config/database');
 const { clientError, serverError } = require('./controller/error');
 require('dotenv').config();
+const { Settings } = require('luxon');
 
 
 const app = express();
 const log = console.log;
 const port = process.env.PORT || 3000;
+Settings.defaultZoneName = 'Asia/Dhaka';
+
 
 
 
