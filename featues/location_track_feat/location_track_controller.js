@@ -40,6 +40,7 @@ exports.logJourney = async (req, res) => {
 
 exports.getSpecificJourneyDetails = async (req, res) => {
     try {
+        console.log(req.body);
         const user_unique_id = req.body.user_unique_id;
         const journeyId = req.body.journeyId;
         let individual = await IndividualModel.findOne({ user_unique_id });
