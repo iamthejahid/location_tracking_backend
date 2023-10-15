@@ -15,12 +15,12 @@ const journeyDataSchema = new mongoose.Schema({
 });
 
 const sessionSchema = new mongoose.Schema({
-    journey_id: Number,
+    journey_id: String,
     journey_data: [journeyDataSchema],
 });
 
 const individualSchema = new mongoose.Schema({
-    user_unique_id: Number,
+    user_unique_id: String,
     sessions: [sessionSchema],
 });
 
